@@ -23,6 +23,7 @@
     <div class="page-header">
         {% if user.is_authenticated %}
         <a href="{% url 'post_new' %}" class="top-menu"><span class="fas fa-plus"></span></a>
+        <p class="top-menu">{{ user.username }} <a href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span></a></p>
         {% else %}
         <a href="{% url 'login' %}" class="top-menu"><span class="fas fa-sign-in-alt"></span></a> 
         {% endif %}
