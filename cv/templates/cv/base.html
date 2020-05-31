@@ -15,7 +15,7 @@
     <script defer src="{% static 'fontawesome/js/all.js' %}"></script> <!--load all styles -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
 
-    <title>Nils' Blog</title>
+    <title>Nils' CV</title>
 </head>
 
 <body>
@@ -28,6 +28,16 @@
         {% endif %}
         <h1><a href="/cv">Nils' CV</a></h1>
         <h2><a href="/">Blog</a></h2>
+    </div>
+
+    <!-- Content -->
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->

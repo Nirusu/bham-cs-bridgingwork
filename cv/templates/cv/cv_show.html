@@ -1,2 +1,42 @@
 {% extends 'cv/base.html' %}
 
+{% block content %}
+<div class="aboutme">
+    <h2>About Me</h2>
+    <p>{{ aboutme.text }}</p>
+</div>
+
+<div class="experience">
+    <h2>Experience</h2>
+    {% for entry in work %}
+        <div class="entry">
+            <div class="date">{{entry.fromYear}} — {{entry.toYear}}</div>
+            <span class="title">{{entry.title}}, </span>
+            <span class="company">{{entry.company}}</span>
+            <p>{{ entry.text }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="education">
+    <h2>Education</h2>
+    {% for entry in education %}
+    <div class="entry">
+        <div class="date">{{entry.fromYear}} — {{entry.toYear}}</div>
+        <span class="title">{{entry.title}}, </span>
+        <span class="company">{{entry.company}}</span>
+        <p>{{ entry.text }}</p>
+    </div>
+{% endfor %}
+</div>
+
+<div class="skills">
+    <h2>Skills</h2>
+    <p>{{skills.skills}}</p>
+</div>
+
+<div class="interests">
+    <h2>Interests</h2>
+    <p>{{interests.interests}}</p>
+</div>
+{% endblock %}

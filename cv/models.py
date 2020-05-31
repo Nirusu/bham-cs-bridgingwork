@@ -5,14 +5,14 @@ class AboutMe(models.Model):
     name = models.CharField(max_length = 50)
     dob = models.DateField()
     email = models.EmailField()
-    address = models.TimeField()
+    name = models.CharField(max_length = 100)
     text = models.TextField()
 
     def publish(self):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.text
 
 class EducationEntry(models.Model):
     title = models.CharField(max_length=200)
