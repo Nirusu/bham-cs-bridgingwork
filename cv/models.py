@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class AboutMe(models.Model):
     # No phone numbers or similar, it's public after all
@@ -16,8 +17,10 @@ class AboutMe(models.Model):
 
 class EducationEntry(models.Model):
     title = models.CharField(max_length=200)
-    fromYear = models.CharField(max_length=50) # Don't want a full-flegded DateField for an abbreviated date
-    toYear = models.CharField(max_length=20) # Don't want a full-flegded DateField for an abbreviated date
+    fromDate = models.DateField(default=timezone.now)
+    fromDateShown = models.CharField(max_length=20) # Don't want a full-flegded DateField for an abbreviated date
+    toDate = models.DateField(default=timezone.now)
+    toDateShown = models.CharField(max_length=20) # Don't want a full-flegded DateField for an abbreviated date
     company = models.CharField(max_length=200)
     text = models.TextField()
 
@@ -29,8 +32,10 @@ class EducationEntry(models.Model):
 
 class WorkEntry(models.Model):
     title = models.CharField(max_length=200)
-    fromYear = models.CharField(max_length=50)
-    toYear = models.CharField(max_length=50)
+    fromDate = models.DateField(default=timezone.now)
+    fromDateShown = models.CharField(max_length=20) # Don't want a full-flegded DateField for an abbreviated date
+    toDate = models.DateField(default=timezone.now)
+    toDateShown = models.CharField(max_length=20) # Don't want a full-flegded DateField for an abbreviated date
     company = models.CharField(max_length=200)
     text = models.TextField()
 
