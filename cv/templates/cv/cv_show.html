@@ -4,7 +4,7 @@
 <div class="aboutme">
     <h2>About Me</h2>
     {% if user.is_authenticated %} {% if aboutme.text %} <a class="btn btn-default" href="{% url 'aboutme_edit' pk=aboutme.pk %}"><span class="fas fa-pencil-alt"></span></span></a> {% else %} <a class="btn btn-default" href="{% url 'aboutme_new' %}"><span class="fas fa-plus"></span></span></a>  {% endif %}{% endif %}
-    {% if aboutme.text %}<p>{{ aboutme.text }}</p>{% endif %}
+    {% if aboutme.text %}<p>{{ aboutme.text|linebreaks }}</p>{% endif %}
 </div>
 
 <div class="experience">
@@ -16,7 +16,7 @@
             <div class="date">{{entry.fromDateShown}} — {{entry.toDateShown}}</div>
             <span class="title">{{entry.title}}, </span>
             <span class="company">{{entry.company}}</span>
-            {% if entry.text %} <p>{{ entry.text }}</p>{% endif %}
+            {% if entry.text %} <p>{{ entry.text|linebreaks }}</p>{% endif %}
         </div>
     {% endfor %}
 </div>
@@ -30,7 +30,7 @@
         <div class="date">{{entry.fromDateShown}} — {{entry.toDateShown}}</div>
         <span class="title">{{entry.title}}, </span>
         <span class="company">{{entry.company}}</span>
-        {% if entry.text %}<p>{{ entry.text }}</p>{% endif %}
+        {% if entry.text %}<p>{{ entry.text|linebreaks }}</p>{% endif %}
     </div>
 {% endfor %}
 </div>
@@ -38,12 +38,12 @@
 <div class="skills">
     <h2>Skills</h2>
     {% if user.is_authenticated %} {% if skills.skills %} <a class="btn btn-default" href="{% url 'skills_edit' pk=skills.pk %}"><span class="fas fa-pencil-alt"></span></span></a> {% else %} <a class="btn btn-default" href="{% url 'skills_new' %}"><span class="fas fa-plus"></span></span></a>  {% endif %}{% endif %}
-    {% if skills.skills %}<p>{{skills.skills}}</p>{% endif %}
+    {% if skills.skills %}<p>{{skills.skills|linebreaks}}</p>{% endif %}
 </div>
 
 <div class="interests">
     <h2>Interests</h2>
     {% if user.is_authenticated %} {% if interests.interests %} <a class="btn btn-default" href="{% url 'interests_edit' pk=interests.pk %}"><span class="fas fa-pencil-alt"></span></span></a> {% else %} <a class="btn btn-default" href="{% url 'interests_new' %}"><span class="fas fa-plus"></span></span></a>  {% endif %}{% endif %}
-    {% if interests.interests %} <p>{{interests.interests}}</p> {% endif %}
+    {% if interests.interests %} <p>{{interests.interests|linebreaks}}</p> {% endif %}
 </div>
 {% endblock %}
