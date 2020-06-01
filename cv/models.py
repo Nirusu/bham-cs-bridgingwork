@@ -6,7 +6,7 @@ class AboutMe(models.Model):
     name = models.CharField(max_length = 50)
     dob = models.DateField()
     email = models.EmailField()
-    name = models.CharField(max_length = 100)
+    location = models.CharField(max_length = 100)
     text = models.TextField()
 
     def publish(self):

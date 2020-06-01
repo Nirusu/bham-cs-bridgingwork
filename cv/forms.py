@@ -7,7 +7,7 @@ class AboutMeForm(forms.ModelForm):
 
     class Meta:
         model = AboutMe
-        fields = ('name', 'dob', 'email', 'name', 'text')
+        fields = ('name', 'dob', 'email', 'location', 'text')
 
 class EducationEntryForm(forms.ModelForm):
 
