@@ -31,7 +31,6 @@ class CvTest(TestCase):
         self.assertTrue(html.endswith('</html>'))
 
     # Test creation / edit / remove for each form
-    # How to make tests dependent? Could make separate tests this way without duplicate code...
     def test_aboutme_form_create(self):
         response = self.client.post('/cv/aboutme/new/',
                                     data={"name": "Test Name", "dob": "01/01/1970", "email": "test@test.com",
@@ -250,3 +249,27 @@ class CvTest(TestCase):
         response = self.client.get('/cv/interests/1/remove/', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Interests.objects.count(), 0)
+
+    def test_cv_template_used(self):
+        response = self.client.get('/cv/', follow=True)
+        self.assertTemplateUsed(response, 'cv/cv_show.html')
+
+    def test_aboutme_form_template_used(self):
+        response = self.client.get('/cv/aboutme/new/', follow=True)
+        self.assertTemplateUsed(response, 'cv/entry_edit.html')
+
+    def test_education_form_template_used(self):
+        response = self.client.get('/cv/education/new/', follow=True)
+        self.assertTemplateUsed(response, 'cv/entry_edit.html')
+
+    def test_work_form_template_used(self):
+        response = self.client.get('/cv/work/new/', follow=True)
+        self.assertTemplateUsed(response, 'cv/entry_edit.html')
+
+    def test_skills_form_template_used(self):
+        response = self.client.get('/cv/skills/new/', follow=True)
+        self.assertTemplateUsed(response, 'cv/entry_edit.html')
+
+    def test_interests_form_template_used(self):
+        response = self.client.get('/cv/interests/new/', follow=True)
+        self.assertTemplateUsed(response, 'cv/entry_edit.html')
