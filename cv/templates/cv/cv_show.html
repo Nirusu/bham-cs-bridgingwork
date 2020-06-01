@@ -13,7 +13,7 @@
     {% for entry in work %}
         <div class="entry">
             {% if user.is_authenticated %} <a class="btn btn-default" href="{% url 'work_edit' pk=entry.pk %}"><span class="fas fa-pencil-alt"></span> <a class="btn btn-default" href="{% url 'work_remove' pk=entry.pk %}"><span class="fas fa-trash-alt"></span></a> {% endif %}
-            <div class="date">{{entry.fromYear}} — {{entry.toYear}}</div>
+            <div class="date">{{entry.fromDateShown}} — {{entry.toDateShown}}</div>
             <span class="title">{{entry.title}}, </span>
             <span class="company">{{entry.company}}</span>
             {% if entry.text %} <p>{{ entry.text }}</p>{% endif %}
@@ -27,7 +27,7 @@
     {% for entry in education %}
     <div class="entry">
         {% if user.is_authenticated %} <a class="btn btn-default" href="{% url 'education_edit' pk=entry.pk %}"><span class="fas fa-pencil-alt"></span> <a class="btn btn-default" href="{% url 'education_remove' pk=entry.pk %}"><span class="fas fa-trash-alt"></span></a> {% endif %}
-        <div class="date">{{entry.fromYear}} — {{entry.toYear}}</div>
+        <div class="date">{{entry.fromDateShown}} — {{entry.toDateShown}}</div>
         <span class="title">{{entry.title}}, </span>
         <span class="company">{{entry.company}}</span>
         {% if entry.text %}<p>{{ entry.text }}</p>{% endif %}
