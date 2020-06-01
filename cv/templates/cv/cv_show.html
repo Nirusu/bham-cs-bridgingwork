@@ -4,7 +4,7 @@
 <div class="aboutme">
     <h2>About Me</h2>
     {% if user.is_authenticated %} <a class="btn btn-default" href="{% url 'aboutme_new' %}"><span class="fas fa-pencil-alt"></span></span></a>{% endif %}
-    <p>{{ aboutme.text }}</p>
+    {% if aboutme.text %}<p>{{ aboutme.text }}</p>{% endif %}
 </div>
 
 <div class="experience">
@@ -16,7 +16,7 @@
             <div class="date">{{entry.fromYear}} — {{entry.toYear}}</div>
             <span class="title">{{entry.title}}, </span>
             <span class="company">{{entry.company}}</span>
-            <p>{{ entry.text }}</p>
+            {% if entry.text %} <p>{{ entry.text }}</p>{% endif %}
         </div>
     {% endfor %}
 </div>
@@ -30,7 +30,7 @@
         <div class="date">{{entry.fromYear}} — {{entry.toYear}}</div>
         <span class="title">{{entry.title}}, </span>
         <span class="company">{{entry.company}}</span>
-        <p>{{ entry.text }}</p>
+        {% if entry.text %}<p>{{ entry.text }}</p>{% endif %}
     </div>
 {% endfor %}
 </div>
@@ -38,12 +38,12 @@
 <div class="skills">
     <h2>Skills</h2>
     {% if user.is_authenticated %} <a class="btn btn-default" href="{% url 'interests_new' %}"><span class="fas fa-pencil-alt"></span></span></a>{% endif %}
-    <p>{{skills.skills}}</p>
+    {% if skills.skills %}<p>{{skills.skills}}</p>{% endif %}
 </div>
 
 <div class="interests">
     <h2>Interests</h2>
     {% if user.is_authenticated %} <a class="btn btn-default" href="{% url 'skills_new' %}"><span class="fas fa-pencil-alt"></span></span></a>{% endif %}
-    <p>{{interests.interests}}</p>
+    {% if interests.interests %} <p>{{interests.interests}}</p> {% endif %}
 </div>
 {% endblock %}
