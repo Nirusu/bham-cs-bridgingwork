@@ -49,7 +49,7 @@ def aboutme_edit(request, pk):
             entry.save()
             return redirect('/cv')
     else:
-        form = AboutMeForm(request.POST)
+        form = AboutMeForm(instance=post)
     return render(request, 'cv/entry_edit.html', {'form': form})
 
 @login_required
@@ -80,7 +80,7 @@ def education_edit(request, pk):
             entry.save()
             return redirect('/cv')
     else:
-        form = EducationEntryForm(request.POST)
+        form = EducationEntryForm(instance=post)
     return render(request, 'cv/entry_edit.html', {'form': form})
 
 @login_required
@@ -111,7 +111,7 @@ def work_edit(request, pk):
             entry.save()
             return redirect('/cv')
     else:
-        form = WorkEntryForm(request.POST)
+        form = WorkEntryForm(instance=post)
     return render(request, 'cv/entry_edit.html', {'form': form})
 
 @login_required
@@ -143,7 +143,7 @@ def skills_edit(request, pk):
             entry.save()
             return redirect('/cv')
     else:
-        form = SkillsForm(request.POST)
+        form = SkillsForm(instance=post)
     return render(request, 'cv/entry_edit.html', {'form': form})
 
 @login_required
@@ -175,7 +175,7 @@ def interests_edit(request, pk):
             entry.save()
             return redirect('/cv')
     else:
-        form = InterestsForm(request.POST)
+        form = InterestsForm(instance=post)
     return render(request, 'cv/entry_edit.html', {'form': form})
 
 @login_required
